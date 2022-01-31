@@ -13,15 +13,13 @@ const Stack = createNativeStackNavigator();
 
 const App = observer(() => {
 
-  console.log(store, 'store');
-
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="List">
         {
           store.authStore.isLoading ? (
             <Stack.Screen name="Loader" component={LoaderScreen} />
-          ) : store.authStore.userToken == null ? (
+          ) : store.authStore.userToken == '' ? (
             <Stack.Screen
               name="Login"
               component={LoginScreen}

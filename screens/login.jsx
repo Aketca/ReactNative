@@ -19,7 +19,7 @@ const LoginScreen = ({ navigation }) => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button title="Sign in" onPress={} />
+      <Button title="Sign in" onPress={() => store.authStore.login()} />
     </View>
   );
 };
