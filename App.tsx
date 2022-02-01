@@ -2,12 +2,13 @@ import React, { useReducer, useEffect, useMemo} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View } from 'react-native';
+import { observer } from 'mobx-react-lite';
+import store from './store/store';
 import ListScreen from './screens/list';
 import LoginScreen from './screens/login';
 import DetailScreen from './screens/detail';
 import LoaderScreen from './screens/loader';
-import { observer } from 'mobx-react-lite';
-import store from './store/store';
+import ScanScreen from './screens/scan';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,12 +18,13 @@ const App = observer(() => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="List">
         {
-          store.authStore.isLoading ? (
-            <Stack.Screen name="Loader" component={LoaderScreen} />
-          ) : store.authStore.userToken == '' ? (
+          store.auth.isLoading ? (
+            <Stack.Screen options={{headerShown: false}} name="Loader" component={LoaderScreen} />
+          ) : store.auth.token == '' ? (
             <Stack.Screen
               name="Login"
               component={LoginScreen}
+              options={{ title: 'Авторизация' }}
             />
           ) : (
             <>
@@ -35,6 +37,11 @@ const App = observer(() => {
                 name="Detail"
                 component={DetailScreen}
                 options={{ title: 'Мероприятие' }}
+              />
+              <Stack.Screen
+                name="Scan"
+                component={ScanScreen}
+                options={{ title: 'Сканирование' }}
               />
             </>
           )

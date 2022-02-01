@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, TextInput } from 'react-native';
+import { StyleSheet, Button, View, TextInput } from 'react-native';
 import store from '../store/store';
 
 const LoginScreen = ({ navigation }) => {
@@ -7,21 +7,36 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = React.useState('');
 
   return (
-    <View>
+    <View style={styles.container}>
       <TextInput
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
+        style={styles.input}
       />
       <TextInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
+        style={styles.input}
       />
-      <Button title="Sign in" onPress={() => store.authStore.login()} />
+      <Button title="Войти" color="#009999" disabled={!username || !password} onPress={() => store.auth.login(username, password)} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 15,
+  },
+  input: {
+    height: 40,
+    backgroundColor: "#ffffff",
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginBottom: 15,
+  },
+});
 
 export default LoginScreen;

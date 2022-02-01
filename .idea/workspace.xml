@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b0c466f-c912-43fa-9837-b92260158163" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/screens/scan.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/authStore.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/eventsStore.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/store/scanStore.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/detail.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/list.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/list.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/loader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/loader.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/AuthStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/AuthStore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/AuthStore.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +33,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
   <component name="ProjectId" id="24KNYfncizun3ZopCigpuyjC99S" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -36,13 +56,16 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/store" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mskir\Desktop\WORK\ReactNative\store" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mskir\Desktop\WORK\ReactNative" />
     </key>
@@ -58,6 +81,7 @@
       <workItem from="1643375368094" duration="765000" />
       <workItem from="1643652748018" duration="820000" />
       <workItem from="1643659553279" duration="1168000" />
+      <workItem from="1643701755843" duration="18589000" />
     </task>
     <servers />
   </component>

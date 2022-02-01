@@ -1,5 +1,9 @@
-import AuthStore from './AuthStore';
+import authStore from './authStore';
+import eventsStore from './eventsStore';
+import scanStore from './scanStore';
 
 export default {
-  authStore: new AuthStore(),
+  auth: new authStore(),
+  events: new eventsStore(),
+  scan: new scanStore(),
 };
