@@ -1,4 +1,4 @@
-import { runInAction, makeAutoObservable } from "mobx"
+import { runInAction, makeAutoObservable, action } from "mobx"
 import axios from "axios";
 
 export default class authStore {
@@ -9,7 +9,7 @@ export default class authStore {
     makeAutoObservable(this);
   }
 
-  login = async (login: string, password: string) => {
+  login = action((login: string, password: string) => {
     // this.isLoading = true;
     // axios.post('/login', {
     //   login, password
@@ -26,11 +26,14 @@ export default class authStore {
     //     this.isLoading = false;
     //   });
 
-    this.token = 'test';
-    this.isLoading = false;
-  }
+    this.isLoading = true;
+    setTimeout(action(() => {
+      this.token = 'test';
+      this.isLoading = false;
+    }), 1000);
+  });
 
-  logout = async () => {
+  logout = action(() => {
     // this.isLoading = true;
     // axios.get('/logout')
     //   .then((response) => {
@@ -45,7 +48,10 @@ export default class authStore {
     //   });
 
 
-    this.token = '';
-    this.isLoading = false;
-  }
+    this.isLoading = true;
+    setTimeout(action(() => {
+      this.token = '';
+      this.isLoading = false;
+    }), 1000);
+  });
 }
