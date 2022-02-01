@@ -7,7 +7,7 @@ const ListScreen = ({ navigation }) => {
   return (
     <View>
       <Text>Signed in!</Text>
-      <Button title="Выйти" onPress={store.authStore.logout()} />
+      <Button title="Выйти" onPress={() => store.authStore.logout()} />
       <Button
         title="На шаблон detail"
         onPress={() =>

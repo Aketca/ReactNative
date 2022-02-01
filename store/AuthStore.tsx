@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx"
+import { runInAction, makeAutoObservable } from "mobx"
 
 export default class AuthStore {
   isLoading = false;
@@ -8,24 +8,13 @@ export default class AuthStore {
     makeAutoObservable(this);
   }
 
-  setUserToken (value: string) {
-    this.userToken = value;
-  }
-
-  toggleIsLoading () {
-    this.isLoading = !this.isLoading;
-  }
-
-  login () {
+  login = async () => {
     this.isLoading = false;
     this.userToken = 'test';
   }
 
-  logout () {
-    this.isLoading = true;
-    setTimeout(() => {
-      this.userToken = '';
-      this.isLoading = false;
-    }, 500);
+  logout = async () => {
+    this.isLoading = false;
+    this.userToken = '';
   }
 }
