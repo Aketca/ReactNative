@@ -1,4 +1,4 @@
-import { runInAction, makeAutoObservable } from "mobx"
+import { runInAction, makeAutoObservable, action } from "mobx"
 import axios from "axios";
 
 export default class eventsStore {
@@ -10,7 +10,7 @@ export default class eventsStore {
     this.getData();
   }
 
-  getData = async () => {
+  getData = action(() => {
     // this.isLoading = true;
     // axios.get('/logout')
     //   .then((response) => {
@@ -23,7 +23,8 @@ export default class eventsStore {
     //   .finally(() => {
     //     this.isLoading = false;
     //   });
-    setTimeout(() => {
+    this.isLoading = true;
+    setTimeout(action(() => {
       this.list = [
         {
           id: 1,
@@ -72,7 +73,7 @@ export default class eventsStore {
         }
       ];
       this.isLoading = false;
-    }, 3000);
+    }), 10000);
 
-  }
+  });
 }

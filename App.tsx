@@ -1,14 +1,13 @@
 import React, { useReducer, useEffect, useMemo} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View } from 'react-native';
+import { View, Button } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import store from './store/store';
 import ListScreen from './screens/list';
 import LoginScreen from './screens/login';
 import DetailScreen from './screens/detail';
 import LoaderScreen from './screens/loader';
-import ScanScreen from './screens/scan';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,17 +30,22 @@ const App = observer(() => {
               <Stack.Screen
                 name="List"
                 component={ListScreen}
-                options={{ title: 'Список мероприятий' }}
+                options={{
+                    title: 'Список мероприятий',
+                    headerRight: () => (
+                        <Button title="Выйти" color="#006363" onPress={() => store.auth.logout()} />
+                    )
+                }}
               />
               <Stack.Screen
                 name="Detail"
                 component={DetailScreen}
-                options={{ title: 'Мероприятие' }}
-              />
-              <Stack.Screen
-                name="Scan"
-                component={ScanScreen}
-                options={{ title: 'Сканирование' }}
+                options={{
+                    title: 'Мероприятие',
+                    // headerRight: () => (
+                    //     <Button title="Выйти" color="#006363" onPress={() => store.auth.logout()} />
+                    // )
+                }}
               />
             </>
           )

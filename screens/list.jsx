@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Button, View, Text, Image, FlatList } from 'react-native';
+import { StyleSheet, Button, View, Text, Image, FlatList, ActivityIndicator } from 'react-native';
 import store from '../store/store';
 import { observer } from 'mobx-react-lite';
 
@@ -33,12 +33,15 @@ const ListScreen = observer(({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={store.events.list}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      />
-      <Button title="Выйти" color="#006363" onPress={() => store.auth.logout()} />
+      {store.events.list && store.events.list.length > 0 ? (
+          <FlatList
+              data={store.events.list}
+              renderItem={renderItem}
+              keyExtractor={item => item.id}
+          />
+      ) : (
+          <ActivityIndicator size="large" color="#009999" />
+      )}
     </View>
 
   );
@@ -47,6 +50,9 @@ const ListScreen = observer(({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+    display: 'flex',
+    flexDirection: 'column',
+    flexGrow: 1
   },
   image: {
     width: 50,

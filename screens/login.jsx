@@ -29,6 +29,10 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+      flexGrow: 1,
   },
   input: {
     height: 40,

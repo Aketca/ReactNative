@@ -15,10 +15,9 @@ export default class scanStore {
   }
 
   sendScan = (type: string, data: string) => {
-    console.log(type, data);
     this.isLoading = true;
-    // this.result = 'error';
-    this.result = 'success';
+    this.result = 'error';
+    // this.result = 'success';
     this.isLoading = false;
   }
 }
