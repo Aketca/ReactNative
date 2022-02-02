@@ -9,13 +9,13 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TextInput
-        placeholder="Username"
+        placeholder="Логин"
         value={username}
         onChangeText={setUsername}
         style={styles.input}
       />
       <TextInput
-        placeholder="Password"
+        placeholder="Пароль"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
       flexGrow: 1,
   },
   input: {
-    height: 40,
+    height: 50,
     backgroundColor: "#ffffff",
     paddingLeft: 10,
     paddingRight: 10,

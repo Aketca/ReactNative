@@ -4,7 +4,7 @@ import { Camera } from 'expo-camera';
 import store from '../store/store';
 import { observer } from 'mobx-react-lite';
 
-const DetailScreen = observer(() => {
+const DetailScreen = observer(({ route, navigation }) => {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanning, setScanning] = useState(false);
 
@@ -12,9 +12,12 @@ const DetailScreen = observer(() => {
         if (scanning){
             store.scan.sendScan(type, data);
             setScanning(false);
-            console.log('test', type, data);
         } else return undefined
     };
+    useEffect(() => {
+      navigation.setOptions({ title: `Мероприятие: ${route.params.item.title}` })
+    }, [navigation])
+
 
     const handleStartScanning = () => {
         setScanning(true);
@@ -23,17 +26,25 @@ const DetailScreen = observer(() => {
 
     useEffect(() => {
         (async () => {
-            const { status } = await Camera.requestCameraPermissionsAsync();
-            setHasPermission(status === 'granted');
+          const { status } = await Camera.requestCameraPermissionsAsync();
+          setHasPermission(status === 'granted');
         })();
         return handleStartScanning();
     }, []);
 
     if (hasPermission === null) {
-        return <Text>Requesting for camera permission</Text>;
+        return (
+          <View style={styles.container}>
+            <Text>Запрашиваем разрешение на использование камеры</Text>
+          </View>
+        );
     }
     if (hasPermission === false) {
-        return <Text>No access to camera</Text>;
+        return (
+          <View style={styles.container}>
+            <Text>Нет доступа к камере</Text>
+          </View>
+        ) ;
     }
 
     return (

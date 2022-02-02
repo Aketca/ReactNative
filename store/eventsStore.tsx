@@ -70,6 +70,36 @@ export default class eventsStore {
           id: 9,
           image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
           title: 'title 3',
+        },
+        {
+          id: 10,
+          image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+          title: 'title 1',
+        },
+        {
+          id: 11,
+          image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+          title: 'title 2',
+        },
+        {
+          id: 12,
+          image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+          title: 'title 3',
+        },
+        {
+          id: 13,
+          image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+          title: 'title 1',
+        },
+        {
+          id: 14,
+          image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+          title: 'title 2',
+        },
+        {
+          id: 15,
+          image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+          title: 'title 3',
         }
       ];
       this.isLoading = false;
