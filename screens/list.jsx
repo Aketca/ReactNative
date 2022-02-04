@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { RefreshControl, StyleSheet, Button, View, Text, Image, FlatList, ActivityIndicator, Pressable, TouchableHighlight } from 'react-native';
 import store from '../store/store';
 import { observer } from 'mobx-react-lite';
+import { primaryColor, highlightColor } from '../constants';
 
 const ListScreen = observer(({ navigation }) => {
   const onRefresh = useCallback(() => {
@@ -12,20 +13,23 @@ const ListScreen = observer(({ navigation }) => {
     return (
       <TouchableHighlight
         activeOpacity={0.9}
-        underlayColor="#e5e5e5"
+        underlayColor={highlightColor}
         style={styles.highlight}
         onPress={() => navigation.navigate('Detail', { item })}>
-        <View style={styles.item}>
+        <View>
           <View style={styles.flex}>
             <Image
               style={styles.image}
               source={{
-                uri: item.image,
+                uri: item.poster,
               }}
             />
             <View style={styles.info}>
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.id}>id: {item.id}</Text>
+              <Text style={styles.title}>{item.name}</Text>
+              <Text style={styles.text}>id: {item.id}</Text>
+              <Text style={styles.text}>Дата: {item.event_date}</Text>
+              <Text style={styles.text}>Место: {item.event_place}</Text>
+              <Text style={styles.text}>Время: {item.event_time}</Text>
             </View>
           </View>
         </View>
@@ -48,7 +52,7 @@ const ListScreen = observer(({ navigation }) => {
               keyExtractor={item => item.id}
           />
       ) : (
-          <ActivityIndicator size="large" color="#009999" />
+          <ActivityIndicator size="large" color={primaryColor} />
       )}
     </View>
 
@@ -70,33 +74,34 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
     borderWidth: 1,
-    borderColor: '#e5e5e5',
+    borderColor: highlightColor,
     overflow: 'hidden'
   },
   image: {
     width: 75,
-    height: 75,
-  },
-  item: {
-    // marginBottom: 15,
+    height: 120,
   },
   info: {
     display: "flex",
     flexDirection: "column",
-    flexGrow: 1,
+    flexShrink: 1,
     paddingLeft: 10,
     paddingTop: 6,
+    paddingBottom: 6,
   },
   flex: {
     display: "flex",
     flexDirection: "row",
+    alignItems: "flex-start"
   },
-  id: {
+  text: {
     fontSize: 16,
+    marginBottom: 3,
   },
   title: {
     fontSize: 20,
-    marginBottom: 5
+    marginBottom: 5,
+    color: primaryColor,
   }
 });
 

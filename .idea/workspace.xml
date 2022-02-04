@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b0c466f-c912-43fa-9837-b92260158163" name="Changes" comment="">
+    <list default="true" id="7b0c466f-c912-43fa-9837-b92260158163" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/axios.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/constants.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/adaptive-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/adaptive-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/favicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/favicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/splash.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/splash.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/detail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/detail.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/list.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/list.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/loader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/loader.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/screens/login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/authStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/authStore.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/eventsStore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/eventsStore.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +53,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/store" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hochu-bilet.com" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -54,6 +61,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mskir\Desktop\WORK\ReactNative\assets" />
       <recent name="C:\Users\mskir\Desktop\WORK\ReactNative\store" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -72,6 +80,9 @@
       <workItem from="1643652748018" duration="820000" />
       <workItem from="1643659553279" duration="1168000" />
       <workItem from="1643701755843" duration="18589000" />
+      <workItem from="1643810059961" duration="1845000" />
+      <workItem from="1643875890820" duration="4661000" />
+      <workItem from="1643962099706" duration="15309000" />
     </task>
     <servers />
   </component>

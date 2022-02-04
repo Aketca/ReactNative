@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, Button } from 'react-native';
 import { Camera } from 'expo-camera';
 import store from '../store/store';
 import { observer } from 'mobx-react-lite';
+import { primaryColor, successColor, errorColor } from '../constants';
 
 const DetailScreen = observer(({ route, navigation }) => {
     const [hasPermission, setHasPermission] = useState(null);
@@ -15,7 +16,7 @@ const DetailScreen = observer(({ route, navigation }) => {
         } else return undefined
     };
     useEffect(() => {
-      navigation.setOptions({ title: `Мероприятие: ${route.params.item.title}` })
+      navigation.setOptions({ title: route.params.item.name })
     }, [navigation])
 
 
@@ -60,7 +61,7 @@ const DetailScreen = observer(({ route, navigation }) => {
                   onBarCodeScanned={handleBarCodeScanned}
                 />
             ) : (
-                <Button title={'Сканировать код'} color="#006363" onPress={handleStartScanning} />
+                <Button title={'Сканировать код'} color={primaryColor} onPress={handleStartScanning} />
             )}
         </View>
     );
@@ -77,10 +78,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
     success: {
-        backgroundColor: '#17cd71',
+        backgroundColor: successColor,
     },
     error: {
-        backgroundColor: '#d53a3a',
+        backgroundColor: errorColor,
     },
     camera: {
         position: 'absolute',
