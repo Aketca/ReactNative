@@ -13,9 +13,11 @@ export default class authStore {
   }
 
   getTokenFromStore = async() => {
+    this.isLoading = true;
     const result = await SecureStore.getItemAsync('savedToken') as string;
     runInAction(() => {
       this.token = result;
+      this.isLoading = false;
     })
   };
 
