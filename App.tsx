@@ -8,6 +8,7 @@ import ListScreen from './screens/list';
 import LoginScreen from './screens/login';
 import DetailScreen from './screens/detail';
 import LoaderScreen from './screens/loader';
+import { secondaryColor } from './constants';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +34,7 @@ const App = observer(() => {
                 options={{
                     title: 'Список мероприятий',
                     headerRight: () => (
-                        <Button title="Выйти" color="#006363" onPress={() => store.auth.logout()} />
+                        <Button title="Выйти" color={secondaryColor} onPress={() => store.auth.logout()} />
                     )
                 }}
               />
@@ -42,9 +43,6 @@ const App = observer(() => {
                 component={DetailScreen}
                 options={{
                     title: 'Мероприятие',
-                    // headerRight: () => (
-                    //     <Button title="Выйти" color="#006363" onPress={() => store.auth.logout()} />
-                    // )
                 }}
               />
             </>

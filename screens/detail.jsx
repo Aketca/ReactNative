@@ -9,9 +9,9 @@ const DetailScreen = observer(({ route, navigation }) => {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanning, setScanning] = useState(false);
 
-    const handleBarCodeScanned = ({ type, data }) => {
+    const handleBarCodeScanned = ({ data }) => {
         if (scanning){
-            store.scan.sendScan(type, data);
+            store.scan.sendScan(route.params.item.id, data);
             setScanning(false);
         } else return undefined
     };
@@ -61,13 +61,29 @@ const DetailScreen = observer(({ route, navigation }) => {
                   onBarCodeScanned={handleBarCodeScanned}
                 />
             ) : (
+              <View style={styles.resultWrap}>
+                <View style={styles.messageWrap}>
+                  <Text>{store.scan.message}</Text>
+                </View>
                 <Button title={'Сканировать код'} color={primaryColor} onPress={handleStartScanning} />
+              </ View>
             )}
         </View>
     );
 });
 
 const styles = StyleSheet.create({
+    resultWrap: {
+      display: 'flex',
+      flexDirection: 'column',
+      flexGrow: 1,
+    },
+    messageWrap: {
+      borderRadius: 5,
+      padding: 12,
+      backgroundColor: '#ffffff',
+      marginBottom: 'auto'
+    },
     container: {
         padding: 15,
         position: 'relative',

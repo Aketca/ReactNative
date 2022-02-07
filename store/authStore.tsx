@@ -1,5 +1,6 @@
 import { runInAction, makeAutoObservable, action } from "mobx"
-// import { axiosInstance } from '../axios';
+import { axiosInstance } from '../axios';
+import * as SecureStore from 'expo-secure-store';
 
 export default class authStore {
   isLoading = false;
@@ -8,61 +9,46 @@ export default class authStore {
 
   constructor() {
     makeAutoObservable(this);
+    this.getTokenFromStore();
   }
+
+  getTokenFromStore = async() => {
+    const result = await SecureStore.getItemAsync('savedToken') as string;
+    runInAction(() => {
+      this.token = result;
+    })
+  };
+
+  setTokenToStore = async(token: string) => {
+    await SecureStore.setItemAsync('savedToken', token);
+  };
 
   login = action((login: string, password: string) => {
     this.isLoading = true;
-    // this.msg = '';
-    // let formData = new FormData();
-    // formData.append('login', login);
-    // formData.append('password', password);
-    // console.log('formdata: ', formData);
-    // axiosInstance.post(`/login`, formData)
-    //   .then(action((response) => {
-    //     console.log(formData);
-    //
-    //     // this.token = 'test';
-    //     // console.log(this.token);
-    //
-    //     if (response.data.success) {
-    //       console.log('response +: ',response);
-    //     } else {
-    //       console.log('response -: ',response);
-    //       this.msg = response.data.msg;
-    //     }
-    //   }))
-    //   .catch(action(() => {
-    //     this.token = '';
-    //   }))
-    //   .finally(action(() => {
-    //     this.isLoading = false;
-    //   }));
+    this.msg = '';
 
-    setTimeout(action(() => {
-      this.token = 'test';
-      this.isLoading = false;
-    }), 1000);
+    axiosInstance.get(`/login?login=${login}&password=${password}`)
+      .then(action((response) => {
+        if (response.data.success) {
+          this.token = response.data['x-auth-token'];
+          this.setTokenToStore(this.token);
+        } else {
+          this.token = '';
+          this.setTokenToStore('');
+          this.msg = response.data.msg;
+        }
+      }))
+      .catch(action(() => {
+        this.token = '';
+        this.setTokenToStore('');
+      }))
+      .finally(action(() => {
+        this.isLoading = false;
+      }));
   });
 
   logout = action(() => {
-    // this.isLoading = true;
-    // axios.get('/logout')
-    //   .then((response) => {
-    //     console.log(response);
-    //     this.token = '';
-    //   })
-    //   .catch(() => {
-    //     this.token = '';
-    //   })
-    //   .finally(() => {
-    //     this.isLoading = false;
-    //   });
-
-
-    this.isLoading = true;
-    setTimeout(action(() => {
-      this.token = '';
-      this.isLoading = false;
-    }), 1000);
+    this.token = '';
+    this.setTokenToStore('');
   });
 }
